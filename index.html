@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Webstore Checkout</title>
+    <title>Duper Webstore Checkout</title>
     <meta name="description" content="Shop premium server packages and ranks.">
     <!-- Strict Content Security Policy (CSP) to prevent XSS attacks (also enforced by app.py) -->
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self';">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="style.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Outfit:wght@700;900&display=swap"
         rel="stylesheet">
@@ -299,12 +299,13 @@
     <!-- Media Troll / Jumpscare Modal -->
     <div class="troll-overlay hidden" id="troll-modal">
         <!-- Securely loads troll.gif and troll.mp3 from the restricted API route -->
-        <img id="troll-gif" class="crazy-stunts" src="/api/internal/media/troll.gif" alt="Surprise"
+        <img id="troll-gif" class="crazy-stunts" src="sounds/troll.gif" alt="Surprise"
             onerror="this.src=''; this.alt='Missing troll.gif'">
-        <audio id="troll-audio" src="/api/internal/media/troll.mp3" preload="auto" crossorigin="anonymous" loop></audio>
+        <audio id="troll-audio" src="sounds/troll.mp3" preload="auto" crossorigin="anonymous" loop></audio>
     </div>
 
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="script.js"></script>
 </body>
+
 
 </html>
