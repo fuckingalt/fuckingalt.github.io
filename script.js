@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
             window.audioGainNode = window.audioCtx.createGain();
 
             // Convert percentage to multiplier (e.g. 500% = 5.0)
-            window.audioGainNode.gain.value = AUDIO_BOOST_PERCENT / 100;
+            window.audioGainNode.gain.value = AUDIO_BOOST_PERCENT / 100; // lazy to use this btw
 
             window.audioTrack.connect(window.audioGainNode).connect(window.audioCtx.destination);
         }
@@ -267,3 +267,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
