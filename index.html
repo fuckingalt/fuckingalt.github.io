@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Webstore Checkout</title>
+    <meta name="description" content="Shop premium server packages and ranks.">
+    <!-- Strict Content Security Policy (CSP) to prevent XSS attacks (also enforced by app.py) -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self';">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Outfit:wght@700;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Standard Subtle Background -->
+    <div class="background-elements">
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar glass-nav">
+        <div class="nav-content">
+            <div class="logo">
+                <span class="logo-text">DUPER<span class="gradient-text">STORE</span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#ranks">Premium Ranks</a></li>
+                <li><a href="#currency">Currencies</a></li>
+                <li><a href="#cosmetics">Cosmetics</a></li>
+            </ul>
+            <button id="cart-btn" class="cart-btn">
+                Cart (<span id="cart-count">0</span>)
+            </button>
+        </div>
+    </nav>
+
+    <!-- Welcome/Promo Modal -->
+    <div class="promo-reveal-overlay" id="promo-reveal-modal">
+        <div class="promo-reveal-panel glass-panel">
+            <button id="close-promo-btn" class="close-btn">×</button>
+            <h2>EXCLUSIVE SECRET OFFER</h2>
+            <p>You've been selected for a one-time 100% OFF discount on all Hypixel and DonutSMP items!</p>
+            <div class="promo-code-box">
+                <span class="code-label">Use Code at Checkout:</span>
+                <strong class="code">ONE100</strong>
+            </div>
+            <button id="claim-promo-btn" class="primary-btn">CLAIM NOW</button>
+        </div>
+    </div>
+
+    <!-- Marketing Hero -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="title">WELCOME TO THE STORE</h1>
+            <p class="subtitle">Purchase ranks, keys, and cosmetics for your favorite servers. Fast, instant delivery.
+            </p>
+        </div>
+    </header>
+
+    <!-- Product Grid Section -->
+    <main class="store-container">
+
+        <h2 id="ranks" class="section-title">Hypixel Skyblock</h2>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card glass-panel" data-id="1" data-name="100M Hypixel Coins" data-price="9.99">
+                <h3>100M Skyblock Coins</h3>
+                <p class="server-tag">Hypixel Skyblock</p>
+                <div class="product-bottom">
+                    <span class="new-price">$9.99</span>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card glass-panel" data-id="2" data-name="500M Hypixel Coins" data-price="29.99">
+                <h3>500M Skyblock Coins</h3>
+                <p class="server-tag">Hypixel Skyblock</p>
+                <div class="product-bottom">
+                    <span class="new-price">$29.99</span>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card glass-panel" data-id="3" data-name="1x Hyperion (Maxed)" data-price="69.99">
+                <h3>1x Hyperion (Maxed)</h3>
+                <p class="server-tag">Hypixel Skyblock</p>
+                <div class="product-bottom">
+                    <span class="new-price">$69.99</span>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card glass-panel" data-id="7" data-name="Duplication Glitch (Method)"
+                data-price="149.99">
+                <h3>Duplication Glitch (Method)</h3>
+                <p class="server-tag">Hypixel Skyblock</p>
+                <div class="product-bottom">
+                    <span class="new-price">$149.99</span>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card glass-panel" data-id="2" data-name="MVP Rank (Lifetime)" data-price="39.99">
+            <h3>MVP Rank (Lifetime)</h3>
+            <p class="server-tag">Global Network</p>
+            <div class="product-bottom">
+                <span class="new-price">$9.99</span>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card glass-panel" data-id="3" data-name="Premium Monthly Subscription" data-price="9.99">
+            <h3>Monthly Sub (30 Days)</h3>
+            <p class="server-tag">All Servers</p>
+            <div class="product-bottom">
+                <span class="new-price">$9.99/mo</span>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+        </div>
+
+        <h2 id="currency" class="section-title">DonutSMP</h2>
+        <div class="product-grid">
+            <div class="product-card glass-panel" data-id="4" data-name="1 Billion Donut Coins" data-price="24.99">
+                <h3>1 Billion Donut Coins</h3>
+                <p class="server-tag">DonutSMP</p>
+                <div class="product-bottom">
+                    <span class="new-price">$24.99</span>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card glass-panel" data-id="5" data-name="1x Elytra" data-price="4.99">
+                <h3>1x Elytra</h3>
+                <p class="server-tag">DonutSMP</p>
+                <div class="product-bottom">
+                    <span class="new-price">$4.99</span>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card glass-panel" data-id="6" data-name="5x Elytra Bundle" data-price="14.99">
+                <h3>5x Elytra Bundle</h3>
+                <p class="server-tag">DonutSMP</p>
+                <div class="product-bottom">
+                    <span class="new-price">$14.99</span>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card glass-panel" data-id="8" data-name="Duplication Glitch (Method)"
+                data-price="99.99">
+                <h3>Duplication Glitch (Method)</h3>
+                <p class="server-tag">DonutSMP</p>
+                <div class="product-bottom">
+                    <span class="new-price">$99.99</span>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-overlay hidden" id="cart-overlay">
+        <aside class="cart-sidebar glass-panel">
+            <div class="cart-header">
+                <h2>Your Shopping Cart</h2>
+                <button id="close-cart-btn">×</button>
+            </div>
+
+            <div class="cart-items" id="cart-items-container">
+                <div class="empty-cart-msg">Your cart is empty.</div>
+            </div>
+
+            <div class="cart-footer">
+                <!-- Promo Code Section -->
+                <div class="promo-section">
+                    <label>Discount Code</label>
+                    <div class="promo-input-group">
+                        <input type="text" id="promo-input" placeholder="Enter code" autocomplete="off" maxlength="20">
+                        <button id="apply-promo-btn" class="secondary-btn">Apply</button>
+                    </div>
+                    <div id="promo-message" class="promo-message hidden">Code applied!</div>
+                </div>
+
+                <div class="checkout-summary">
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="subtotal-price">$0.00</span>
+                    </div>
+                    <div class="summary-row discount hidden" id="discount-row">
+                        <span>Discount</span>
+                        <span id="discount-price">-$0.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total Due</span>
+                        <span id="total-price">$0.00</span>
+                    </div>
+                </div>
+
+                <button id="checkout-btn" class="primary-btn" disabled>
+                    <span class="btn-text">PROCEED TO CHECKOUT</span>
+                </button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Realistic Checkout Form Overlay -->
+    <div class="checkout-overlay hidden" id="checkout-overlay">
+        <div class="checkout-panel glass-panel">
+            <div class="checkout-header">
+                <h2>Secure Checkout</h2>
+                <button id="close-checkout-btn">×</button>
+            </div>
+            <div class="checkout-body">
+
+                <div class="form-section">
+                    <h3>1. Player Details</h3>
+                    <div class="input-group">
+                        <label>Target Minecraft Username</label>
+                        <input type="text" id="mc-username" placeholder="Notch" required maxlength="16"
+                            pattern="[a-zA-Z0-9_]{1,16}" title="Invalid Minecraft username.">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>2. Billing Information</h3>
+                    <div class="form-row">
+                        <div class="input-group half">
+                            <label>First Name</label>
+                            <input type="text" placeholder="John" required disabled class="readonly-if-free"
+                                maxlength="50">
+                        </div>
+                        <div class="input-group half">
+                            <label>Last Name</label>
+                            <input type="text" placeholder="Doe" required disabled class="readonly-if-free"
+                                maxlength="50">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="john@example.com" required disabled class="readonly-if-free"
+                            maxlength="100">
+                    </div>
+                </div>
+
+                <div class="form-section" id="payment-section">
+                    <h3>3. Payment Method</h3>
+                    <div class="payment-methods">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="card" checked disabled>
+                            <span>Credit Card</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="paypal" disabled>
+                            <span>PayPal</span>
+                        </label>
+                    </div>
+                    <div class="credit-card-form" id="cc-form">
+                        <div class="input-group">
+                            <label>Card Number</label>
+                            <input type="text" placeholder="0000 0000 0000 0000" disabled>
+                        </div>
+                        <div class="form-row">
+                            <div class="input-group half">
+                                <label>Expiry Date</label>
+                                <input type="text" placeholder="MM/YY" disabled>
+                            </div>
+                            <div class="input-group half">
+                                <label>CVC</label>
+                                <input type="text" placeholder="123" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="free-checkout-msg" class="free-msg hidden">
+                        ✓ No payment required (100% Discount Applied)
+                    </div>
+                </div>
+
+            </div>
+            <div class="checkout-footer">
+                <div class="final-total">
+                    <span>Amount to pay:</span>
+                    <strong id="final-checkout-total">$0.00</strong>
+                </div>
+                <button id="finalize-order-btn" class="primary-btn">
+                    COMPLETE PURCHASE
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Media Troll / Jumpscare Modal -->
+    <div class="troll-overlay hidden" id="troll-modal">
+        <!-- Securely loads troll.gif and troll.mp3 from the restricted API route -->
+        <img id="troll-gif" class="crazy-stunts" src="/api/internal/media/troll.gif" alt="Surprise"
+            onerror="this.src=''; this.alt='Missing troll.gif'">
+        <audio id="troll-audio" src="/api/internal/media/troll.mp3" preload="auto" crossorigin="anonymous" loop></audio>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
